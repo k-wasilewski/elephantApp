@@ -14,7 +14,15 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: ['es2015']
+                    presets: [
+                        ['env', {
+                            targets: {
+                                browsers: [
+                                    '> 1%' //share on the market
+                                ]
+                            }
+                        }]
+                    ]
                 }
             }
         }]
