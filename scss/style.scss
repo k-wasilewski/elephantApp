@@ -1,0 +1,11 @@
+.my-div {
+  $col: #63b866;
+  $my-color: lighten($col, 30%);
+  background-color: $my-color;
+  width: 20%;
+  div {
+    $my-color: darken($col, 30%);
+    background-color: $my-color;
+    width: 50%;
+  }
+}
