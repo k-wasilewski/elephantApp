@@ -5,5 +5,6 @@ module.exports = {
     output: {
         filename: "out.js",
         path: path.resolve(__dirname, "build")
-    }
+    },
+    watch: true
 }
