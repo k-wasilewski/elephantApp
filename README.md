@@ -1,6 +1,6 @@
 ## installing Webpack locally
 
-npm install webpack@4 --save-dev
+npm install webpack@4 --save-dev<br/>
 npm install webpack-cli@3 --save-dev
 
 
