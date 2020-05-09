@@ -8,3 +8,7 @@ npm install webpack-cli@3 --save-dev
 
 cd [project_folder]
 ./node_modules/.bin/webpac
+
+## installing Babel
+
+npm install babel-core@6 babel-preset-es2015@6 babel-loader@7 --save-dev
