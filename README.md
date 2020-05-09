@@ -13,3 +13,11 @@ cd [project_folder]
 
 npm install babel-core@6 babel-preset-es2015@6 babel-loader@7 --save-dev
 npm install babel-preset-env@1 --save-dev
+
+## installing css loaders
+npm install style-loader@0 --save-dev
+npm install css-loader@0 --save-dev
+
+##installing sass loaders
+npm install node-sass@4 --save-dev
+npm install sass-loader@6 --save-dev
