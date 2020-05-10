@@ -1,4 +1,4 @@
-require('file-loader?name=index.[ext]!../app.html');
+//require('file-loader?name=index.[ext]!../app.html');
 
 require("./printer.js");
 require("../css/style.css")

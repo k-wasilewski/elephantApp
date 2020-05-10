@@ -28,3 +28,9 @@ npm install file-loader@1 --save-dev
 
 ## installing HTMLWebpackPlugin
 npm install html-webpack-plugin@3 --save-dev
+
+## installing webpack-dev-server (HMR -> localhost:8080)
+npm install webpack-dev-server@3 --save-dev
+
+## running webpack-sev-server
+./node_modules/.bin/webpack-dev-server --inline --hot
