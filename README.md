@@ -15,10 +15,13 @@ npm install babel-preset-env@1 --save-dev
 npm install style-loader@0 --save-dev
 npm install css-loader@0 --save-dev
 
-##installing sass loaders
+## installing sass loaders
 npm install node-sass@4 --save-dev
 npm install sass-loader@6 --save-dev
 
-##installing css autoprefixer
+## installing css autoprefixer
 npm install postcss-loader@2 --save-dev
 npm install autoprefixer@8 --save-dev
+
+## installing file-loader for images
+npm install file-loader@1 --save-dev
