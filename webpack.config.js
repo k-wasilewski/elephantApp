@@ -18,7 +18,7 @@ module.exports = {
                         ['env', {
                             targets: {
                                 browsers: [
-                                    '> 1%' //share on the market
+                                    '> 1%' //translate from
                                 ]
                             }
                         }]
@@ -31,6 +31,19 @@ module.exports = {
         }, {
             test: /\.scss$/,
             use: ['style-loader', 'css-loader',
+                {
+                    loader: 'postcss-loader',
+                    options: {
+                        plugins: () => [
+                            new require('autoprefixer')
+                            ({
+                                browsers: [
+                                    'ie 11' //translate from
+                                ]
+                            })
+                        ]
+                    }
+                },
                 'sass-loader'
             ]
         }]

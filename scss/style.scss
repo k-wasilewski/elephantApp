@@ -7,5 +7,6 @@
     $my-color: darken($col, 30%);
     background-color: $my-color;
     width: 50%;
+    user-select: none;
   }
 }
