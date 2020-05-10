@@ -1,4 +1,5 @@
 var path = require('path');
+var Html = require('html-webpack-plugin');
 
 module.exports = {
     entry: "./js/app.js",
@@ -72,5 +73,11 @@ module.exports = {
                 }
             },
         ]
-    }
+    },
+    plugins: [
+        new Html({
+            filename: 'index.html',
+            template: './app.html'
+        })
+    ]
 }

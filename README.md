@@ -25,3 +25,6 @@ npm install autoprefixer@8 --save-dev
 
 ## installing file-loader for images
 npm install file-loader@1 --save-dev
+
+## installing HTMLWebpackPlugin
+npm install html-webpack-plugin@3 --save-dev
