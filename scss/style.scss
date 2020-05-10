@@ -15,3 +15,12 @@
   background-image: url(../img/utf8.jpeg);
   height: 20%;
 }
+
+@font-face {
+  font-family: myLato;
+  src: url(../fonts/Lato-Hairline.ttf);
+}
+
+span {
+  font-family: myLato;
+}
