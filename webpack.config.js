@@ -7,6 +7,9 @@ module.exports = {
         filename: "out.js",
         path: path.resolve(__dirname, "build")
     },
+    watchOptions: {
+        poll: true
+    },
     watch: true,
     module: {
         rules: [{
