@@ -11,6 +11,9 @@ module.exports = {
         poll: true
     },
     watch: true,
+    devServer: {
+        watchContentBase: true
+    },
     module: {
         rules: [{
             test: /\.js$/,
