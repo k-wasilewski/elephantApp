@@ -7,6 +7,8 @@ module.exports = {
         filename: "out.js",
         path: path.resolve(__dirname, "build")
     },
+    mode: "development",
+    devtool: "source-map",
     watchOptions: {
         poll: true
     },
@@ -37,7 +39,13 @@ module.exports = {
             use: ['style-loader', 'css-loader']
         }, {
             test: /\.scss$/,
-            use: ['style-loader', 'css-loader',
+            use: ['style-loader',
+                {
+                    loader: 'css-loader',
+                    options: {
+                        sourceMap: true,
+                    }
+                },
                 {
                     loader: 'postcss-loader',
                     options: {
