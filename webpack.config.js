@@ -1,6 +1,7 @@
 var path = require('path');
 var Html = require('html-webpack-plugin');
 var MiniCSS = require("mini-css-extract-plugin");
+var Compression = require("compression-webpack-plugin");
 
 module.exports = {
     entry: "./js/app.js",
@@ -97,6 +98,10 @@ module.exports = {
         }),
         new MiniCSS({
             filename: "out.css",
+        }),
+        new Compression({
+            threshold: 0,
+            minRatio: 0.5
         })
     ]
 }

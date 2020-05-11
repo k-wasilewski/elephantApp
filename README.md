@@ -37,3 +37,6 @@ npm install webpack-dev-server@3 --save-dev
 
 ## installing CSSExtractPlugin
 npm i mini-css-extract-plugin@0 --save-dev
+
+## installing compression-webpack-plugin
+npm i compression-webpack-plugin@1 --save-dev
