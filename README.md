@@ -34,3 +34,6 @@ npm install webpack-dev-server@3 --save-dev
 
 ## running webpack-sev-server
 ./node_modules/.bin/webpack-dev-server --inline --hot
+
+## installing CSSExtractPlugin
+npm i mini-css-extract-plugin@0 --save-dev
