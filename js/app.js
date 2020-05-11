@@ -11,5 +11,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const abc = 1222;
     console.log(add(abc,2));
 
-    document.getElementById("img").src = require("./img");
+    var img = document.getElementById("img");
+    img.src = require("./img");
+
+    var button = document.createElement("button");
+    button.innerHTML = "lazily append new button";
+    var mydiv = document.getElementsByClassName('my-div')[0];
+    if (mydiv.childNodes.length==3) {
+        mydiv.appendChild(button);
+    }
+    button.onclick = function () {
+        import("./button.js")
+            .then(function(module) {
+                const appendedButton = module.default;
+                mydiv.append(appendedButton);
+            });
+    }
 })

@@ -40,3 +40,6 @@ npm i mini-css-extract-plugin@0 --save-dev
 
 ## installing compression-webpack-plugin
 npm i compression-webpack-plugin@1 --save-dev
+
+## installing babel-lazy-loading plugin
+npm i babel-plugin-syntax-dynamic-import@6 --save-dev
