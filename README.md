@@ -43,3 +43,7 @@ npm i compression-webpack-plugin@1 --save-dev
 
 ## installing babel-lazy-loading plugin
 npm i babel-plugin-syntax-dynamic-import@6 --save-dev
+
+## running app
+(development - webpack-dev-server) npm run start
+(production - webpack->/build/index.html) npm run build
