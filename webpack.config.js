@@ -1,109 +1,160 @@
-var path = require('path');
+const path = require("path");
 var Html = require('html-webpack-plugin');
 var MiniCSS = require("mini-css-extract-plugin");
 var Compression = require("compression-webpack-plugin");
 
-module.exports = {
-    entry: "./js/app.js",
-    output: {
-        filename: "out.js",
+module.exports = env => {
+    const isDev = env.dev ? true : false;
+    const isProd = env.prod ? true : false;
+
+    const config = {};
+
+    config.entry = "./js/app.js";
+
+    config.output = {
+        filename: isDev
+            ? "[name].js"
+            : "[name].[chunkhash].js",
         path: path.resolve(__dirname, "build")
-    },
-    mode: "development",
-    devtool: "source-map",
-    watchOptions: {
-        poll: true
-    },
-    watch: true,
-    devServer: {
-        watchContentBase: true
-    },
-    module: {
-        rules: [{
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
+    }
+
+    config.mode = isProd
+        ? "production"
+        : "development" ;
+
+    config.devtool = isProd
+        ? false
+        : "source-map" ;
+
+    config.watchOptions = isProd
+        ? {poll: false}
+        : {poll: true} ;
+
+    config.watch = isProd
+        ? false
+        : true ;
+
+    config.devServer = isProd
+        ? {watchContentBase: false}
+        : {watchContentBase: true} ;
+
+    const browsers = {
+        dev: ['Firefox > 20'],
+        prod: ['> 3%']
+    }
+
+    const js = {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+            loader: 'babel-loader',
+            options: {
+                presets: [
+                    ['env', {
+                        targets: {
+                            browsers: isDev
+                                ? browsers.dev
+                                : browsers.prod
+                        }
+                    }]
+                ],
+                plugins: ['syntax-dynamic-import'
+                ]
+            }
+        }
+    };
+
+    const css = {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+    };
+
+    const scss = {
+        test: /\.scss$/,
+        sideEffects: isProd ? true : false,
+        use: [isProd
+            ? MiniCSS.loader
+            : 'style-loader',
+            {
+                loader: 'css-loader',
                 options: {
-                    presets: [
-                        ['env', {
-                            targets: {
-                                browsers: [
-                                    '> 1%' //translate from
-                                ]
-                            }
-                        }]
-                    ],
-                    plugins: ['syntax-dynamic-import'
+                    sourceMap: isProd ? false : true,
+                    minimize: isProd ? true : false,
+                }
+            },
+            {
+                loader: 'postcss-loader',
+                options: {
+                    plugins: () => [
+                        new require('autoprefixer')
+                        ({
+                            browsers: isProd ? browsers.prod : browsers.dev
+                        })
                     ]
                 }
-            }
-        }, {
-            test: /\.css$/,
-            use: ['style-loader', 'css-loader']
-        }, {
-            test: /\.scss$/,
-            sideEffects: true,
-            use: [MiniCSS.loader,
-                {
-                    loader: 'css-loader',
-                    options: {
-                        sourceMap: true,
-                    }
-                },
-                {
-                    loader: 'postcss-loader',
-                    options: {
-                        plugins: () => [
-                            new require('autoprefixer')
-                            ({
-                                browsers: [
-                                    'ie 11' //translate from
-                                ]
-                            })
-                        ]
-                    }
-                },
-                'sass-loader'
-            ]
-        },
-            {
-                test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]',
-                            publicPath: 'img',
-                            outputPath: 'img'
-                        }
-                    },
-                ],
             },
+            'sass-loader'
+        ]
+    };
+
+    const images = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
             {
-                test: /\.(eot|ttf|woff|woff2)$/,
-                use: {
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        publicPath: 'fonts',
-                        outputPath: 'fonts'
-                    }
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    publicPath: 'img',
+                    outputPath: 'img'
                 }
             },
-        ]
-    },
-    plugins: [
-        new Html({
+        ],
+    };
+
+    const fonts = {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        use: {
+            loader: 'file-loader',
+            options: {
+                name: '[name].[ext]',
+                publicPath: 'fonts',
+                outputPath: 'fonts'
+            }
+        }
+    };
+
+    config.module = {};
+    config.module.rules = [];
+    config.module.rules.push(js);
+    config.module.rules.push(css);
+    config.module.rules.push(scss);
+    config.module.rules.push(images);
+    config.module.rules.push(fonts);
+
+    config.plugins = [];
+
+    if(isProd) {
+        config.plugins.push( new MiniCSS(
+            { filename: 'out.[chunkhash].css' } )
+        )
+    }
+
+    config.plugins.push( new Html({
             filename: 'index.html',
-            template: './app.html'
-        }),
-        new MiniCSS({
-            filename: "out.css",
-        }),
-        new Compression({
-            threshold: 0,
-            minRatio: 0.5
+            template: './app.html',
+            minify: isProd
+                ? { collapseWhitespace: true }
+                : false
         })
-    ]
+    );
+
+    if(isProd) {
+        config.plugins.push(new Compression({
+                threshold: 0,
+                minRatio: 0.5
+            })
+        );
+    }
+
+    return config;
 }

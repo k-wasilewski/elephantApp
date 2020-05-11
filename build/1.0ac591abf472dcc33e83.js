@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{11:function(n,e,o){"use strict";var t=document.createElement("button");t.innerHTML="appended button",t.onclick=function(){console.log("appended button clicked")},n.exports=t}}]);

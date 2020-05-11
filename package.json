@@ -5,8 +5,8 @@
   "main": "js/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server",
-    "build": "webpack"
+    "start": "webpack-dev-server --env.dev --hot",
+    "build": "webpack --env.prod"
   },
   "devDependencies": {
     "autoprefixer": "^8.6.5",
