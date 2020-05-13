@@ -1,7 +1,8 @@
+# Webpack
+
 ## installing Webpack locally
 npm install webpack@4 --save-dev<br/>
 npm install webpack-cli@3 --save-dev
-
 
 ## running Webpack
 cd [project_folder]
@@ -50,3 +51,9 @@ npm i clean-webpack-plugin@0 --save-dev
 ## running app
 (development - webpack-dev-server) npm run start
 (production - webpack->/build/index.html) npm run build
+
+
+# Jest
+
+## installing jest
+npm i jest --save-dev
