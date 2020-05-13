@@ -2,6 +2,7 @@ const path = require("path");
 var Html = require('html-webpack-plugin');
 var MiniCSS = require("mini-css-extract-plugin");
 var Compression = require("compression-webpack-plugin");
+const Clean = require('clean-webpack-plugin');
 
 module.exports = env => {
     const isDev = env.dev ? true : false;
@@ -154,6 +155,20 @@ module.exports = env => {
                 minRatio: 0.5
             })
         );
+    }
+
+    if(isProd) {
+        config.plugins.push(
+            new Clean(['build'])
+        );
+    }
+
+    if(isDev) {
+        config.devServer = {
+            port: 8085,
+            progress: true,
+            overlay: true
+        }
     }
 
     return config;
