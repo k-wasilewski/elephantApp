@@ -17,9 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var button = document.createElement("button");
     button.innerHTML = "lazily append new button";
     var mydiv = document.getElementsByClassName('my-div')[0];
-    if (mydiv.childNodes.length==3) {
-        mydiv.appendChild(button);
-    }
+
+    mydiv.appendChild(button);
+
     button.onclick = function () {
         import("./button.js")
             .then(function(module) {

@@ -1,15 +1,14 @@
-var http = require('http');
-var fs = require('fs');
+var path = require("path");
+var express = require("express");
 
-const PORT=8080;
+var DIST_DIR = path.join(__dirname, "build");
+var PORT = 3000;
+var app = express();
 
-fs.readFile('./build/index.html', function (err, html) {
+app.use(express.static(DIST_DIR));
 
-    if (err) throw err;
-
-    http.createServer(function(request, response) {
-        response.writeHeader(200, {"Content-Type": "text/html"});
-        response.write(html);
-        response.end();
-    }).listen(PORT);
+app.get("*", function (req, res) {
+    res.sendFile(path.join(DIST_DIR, "index.html"));
 });
+
+app.listen(PORT);
