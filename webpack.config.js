@@ -40,7 +40,7 @@ module.exports = env => {
 
     const browsers = {
         dev: ['Firefox > 20'],
-        prod: ['> 3%']
+        prod: ['> 1%']
     }
 
     const js = {
@@ -71,7 +71,7 @@ module.exports = env => {
 
     const scss = {
         test: /\.scss$/,
-        sideEffects: isProd ? true : false,
+        sideEffects: isProd ? false : true,
         use: [isProd
             ? MiniCSS.loader
             : 'style-loader',
