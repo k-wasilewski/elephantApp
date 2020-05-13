@@ -57,3 +57,6 @@ npm i clean-webpack-plugin@0 --save-dev
 
 ## installing jest
 npm i jest --save-dev
+
+## installing jQuery
+npm i jquery --save
