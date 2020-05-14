@@ -14,17 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
     var img = document.getElementById("img");
     img.src = require("./img");
 
-    var button = document.createElement("button");
-    button.innerHTML = "lazily append new button";
+    const oldButton = require('./oldButton')
+
     var mydiv = document.getElementsByClassName('my-div')[0];
-
-    mydiv.appendChild(button);
-
-    button.onclick = function () {
-        import("./button.js")
-            .then(function(module) {
-                const appendedButton = module.default;
-                mydiv.append(appendedButton);
-            });
-    }
+    mydiv.appendChild(oldButton);
 })
