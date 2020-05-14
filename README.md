@@ -60,3 +60,9 @@ npm i jest --save-dev
 
 ## installing jQuery
 npm i jquery --save
+
+## installing babel7
+npm install babel-core@7.0.0-bridge.0 --save-dev
+
+## installing babel/preset-env
+npm install --save-dev @babel/preset-env

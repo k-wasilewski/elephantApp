@@ -165,7 +165,7 @@ module.exports = env => {
 
     if(isDev) {
         config.devServer = {
-            port: 8082,
+            port: 8081,
             progress: true,
             overlay: true
         }
