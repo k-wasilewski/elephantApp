@@ -18,4 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var mydiv = document.getElementsByClassName('my-div')[0];
     mydiv.appendChild(oldButton);
+    module.exports = mydiv
+
 })

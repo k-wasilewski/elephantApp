@@ -1,13 +1,22 @@
-const $ = require('jquery');
-
 describe("button specification", () => {
     it('button is added to DOM', () => {
-        require('../js/oldButton')
-        require('../js/newButton')
 
-        $('#oldButton').click();
+        const $ = require('jquery');
 
-        expect($('#newButton').innerHTML).toBe('appended button')
+        document.body.innerHTML =
+            '<span>siemanko</span>' +
+            '<div class="my-div">' +
+                '<div>' +
+                    'some content' +
+                '</div>' +
+                '<button id="oldButton" onclick="this.style.backgroundColor="red">' +
+                    'lazily append new button' +
+            '</button>'
+            '</div>' +
+            '<div class="img-wrapper">' +
+                '<img id="img" />' +
+            '</div>';
+
+        console.log($('#oldButton'))
     })
-
 })
