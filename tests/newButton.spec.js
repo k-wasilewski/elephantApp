@@ -2,7 +2,7 @@ require("core-js/stable")
 require("regenerator-runtime/runtime")
 
 describe("button specification", () => {
-    it('old button changes inner text after click',
+    it('new button is appended to DOM after click on old button',
         (done) => {
 
             document.body.innerHTML =
@@ -20,17 +20,16 @@ describe("button specification", () => {
             '</div>';
 
             var mockOldButton = document.getElementById('oldButton')
-            var myButton
 
             mockOldButton.onclick = function () {
-                var myFunction = require('../js/oldButtonFunc').func
-                myButton = myFunction(mockOldButton)
+                require('../js/oldButtonFunc').func(mockOldButton)
             }
 
             mockOldButton.click()
 
             setTimeout(() => {
-                expect(myButton.innerHTML).toEqual("new button was appended")
+                expect(document.getElementById('newButton').innerHTML).
+                    toEqual('appended button')
                 done()
             }, 4000)
         })
