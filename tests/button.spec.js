@@ -1,8 +1,9 @@
-//require("babel-core/register");
-//require("babel-polyfill");
+require("core-js/stable")
+require("regenerator-runtime/runtime")
 
 describe("button specification", () => {
-    it('button is added to DOM', () => {
+    it('new button is appended to DOM after click on old button',
+        async (done) => {
 
         document.body.innerHTML =
             '<span>siemanko</span>' +
@@ -19,22 +20,15 @@ describe("button specification", () => {
             '</div>';
 
         var mockOldButton = document.getElementById('oldButton')
-        var myButton
 
         mockOldButton.onclick = function () {
             var myFunction = require('../js/oldButtonFunc').func
-            console.log("myFunction: "+myFunction)  //here it is interesting output...
-            myButton = myFunction(mockOldButton)
-            console.log("after require: "+myButton.innerHTML)     //why is it 'undefined' ???
-
-            import('../js/oldButtonFunc').then(function (module) {
-                //myButton = module.func(mockOldButton)
-                console.log("after import: "+myButton.innerHTML)   //WORKS only after delay !!!
-            })
+            myFunction(mockOldButton)
         }
 
-        mockOldButton.click()
+        await mockOldButton.click()
+        done()
 
-        //expect(myButton.innerHTML).toEqual("new button was appended")
+        expect(myButton.innerHTML).toEqual("new button was appended")
     })
 })
