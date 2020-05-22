@@ -11,9 +11,9 @@
   }
 }
 
-.img-wrapper {
+body {
   background-image: url(../img/utf8.jpeg);
-  height: 20%;
+  font-family: myLato;
 }
 
 @font-face {
@@ -21,32 +21,33 @@
   src: url(../fonts/Lato-Hairline.ttf);
 }
 
-header {
-  font-family: myLato;
-}
-
 #menu {
+  background-color: lightblue;
   position: fixed;
   right: 2vw;
+  border-radius: 0.3vw;
+  box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.5);
 
   #menuItems {
     float: left;
   }
   .menuItem {
+    cursor: pointer;
     font-family: "Lato Black";
     font-size: 1.5em;
     color: black;
     display: inline-block;
-    margin-top: 5vh;
-    margin-left: 20vh;
+    margin-top: 3vh;
+    margin-right: 15vh;
+    margin-left: 2vh;
   }
   #menuBtn {
     cursor: pointer;
-    height: 10vh;
+    height: 40px;
     float: right;
   }
 }
 
 .hidden {
-  visibility: hidden;
+  display: none;
 }

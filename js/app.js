@@ -2,9 +2,6 @@ require("../css/style.css")
 require("../scss/style.scss")
 
 document.addEventListener("DOMContentLoaded", function () {
-    var img = document.getElementById("img");
-    img.src = require("./img");
-
     const menuBtn = require('./menuBtn')
     const menu = require('./menu')
 
@@ -12,4 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
     header.appendChild(menu)
     menu.appendChild(menuBtn)
     document.body.prepend(header)
+
+    var mainDiv = document.createElement('div')
+    mainDiv.id = 'mainDiv'
+    document.body.appendChild(mainDiv)
 })

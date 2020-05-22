@@ -8,10 +8,32 @@ addMenuItem(menuItems, 'About')
 addMenuItem(menuItems, 'Contact')
 
 function addMenuItem(element, text) {
-    var item1 = document.createElement('span')
-    item1.className = 'menuItem'
-    item1.innerText = text
-    element.appendChild(item1)
+    var item = document.createElement('span')
+    item.className = 'menuItem'
+    item.innerText = text
+    element.appendChild(item)
+
+    if (text==='Sample content') import('./sampleContent').then(function (module) {
+        menuItemOnclickShowContent(item, module)
+    })
+    else if (text==='Home') import('./home').then(function (module) {
+        menuItemOnclickShowContent(item, module)
+    })
+    else if (text==='About') import('./about').then(function (module) {
+        menuItemOnclickShowContent(item, module)
+    })
+    else if (text==='Contact') import('./contact').then(function (module) {
+        menuItemOnclickShowContent(item, module)
+    })
+}
+
+function menuItemOnclickShowContent(element, content) {
+    element.addEventListener('click', function () {
+        import('./toggleVisibility')
+            .then(function (module) {
+                module.func(content)
+            })
+    })
 }
 
 module.exports = menuItems;
