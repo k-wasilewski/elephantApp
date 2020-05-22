@@ -3,8 +3,8 @@ menuItems.id = "menuItems";
 menuItems.classList.add('hidden')
 
 addMenuItem(menuItems, 'Home')
-addMenuItem(menuItems, 'Sample content')
-addMenuItem(menuItems, 'About')
+addMenuItem(menuItems, 'First elephant')
+addMenuItem(menuItems, 'Second elephant')
 addMenuItem(menuItems, 'Contact')
 
 function addMenuItem(element, text) {
@@ -13,23 +13,23 @@ function addMenuItem(element, text) {
     item.innerText = text
     element.appendChild(item)
 
-    if (text==='Sample content') import('./sampleContent').then(function (module) {
+    if (text==='Home') import('../tabs/home').then(function (module) {
         menuItemOnclickShowContent(item, module)
     })
-    else if (text==='Home') import('./home').then(function (module) {
+    else if (text==='First elephant') import('../tabs/elephant1').then(function (module) {
         menuItemOnclickShowContent(item, module)
     })
-    else if (text==='About') import('./about').then(function (module) {
+    else if (text==='Second elephant') import('../tabs/elephant2').then(function (module) {
         menuItemOnclickShowContent(item, module)
     })
-    else if (text==='Contact') import('./contact').then(function (module) {
+    else if (text==='Contact') import('../tabs/contact').then(function (module) {
         menuItemOnclickShowContent(item, module)
     })
 }
 
 function menuItemOnclickShowContent(element, content) {
     element.addEventListener('click', function () {
-        import('./toggleVisibility')
+        import('../func/toggleVisibility')
             .then(function (module) {
                 module.func(content)
             })

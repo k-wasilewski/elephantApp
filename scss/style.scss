@@ -11,9 +11,21 @@
   }
 }
 
-body {
-  background-image: url(../img/utf8.jpeg);
+#root {
   font-family: myLato;
+}
+
+#root:after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  background: url('../img/utf8.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50%;
+  pointer-events: none;
+  z-index: -1;
+  filter: brightness(16000%) blur(3px);
 }
 
 @font-face {
@@ -46,6 +58,10 @@ body {
     height: 40px;
     float: right;
   }
+}
+
+#mainDiv {
+  padding-top: 60px;
 }
 
 .hidden {

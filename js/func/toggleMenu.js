@@ -1,6 +1,6 @@
 module.exports = {
     func: function () {
-        import("./menuItems.js")
+        import("../menu/menuItems.js")
             .then(function(module) {
                 const menuItems = module.default;
                 import('./toggleVisibility')
@@ -9,7 +9,7 @@ module.exports = {
                     })
             });
 
-        return oldButton
+        return menuItems
     }
 }
 
