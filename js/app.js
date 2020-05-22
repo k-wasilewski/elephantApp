@@ -12,6 +12,4 @@ document.addEventListener("DOMContentLoaded", function () {
     header.appendChild(menu)
     menu.appendChild(menuBtn)
     document.body.prepend(header)
-
-
 })

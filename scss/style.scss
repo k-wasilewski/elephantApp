@@ -26,7 +26,20 @@ header {
 }
 
 #menu {
+  position: fixed;
+  right: 2vw;
 
+  #menuItems {
+    float: left;
+  }
+  .menuItem {
+    font-family: "Lato Black";
+    font-size: 1.5em;
+    color: black;
+    display: inline-block;
+    margin-top: 5vh;
+    margin-left: 20vh;
+  }
   #menuBtn {
     cursor: pointer;
     height: 10vh;
