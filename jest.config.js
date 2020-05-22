@@ -1,3 +1,6 @@
 module.exports = {
-    testEnvironment: 'jsdom'
+    testEnvironment: 'jsdom',
+    moduleNameMapper: {
+        "\\.(jpg|jpeg|png|svg)$": "<rootDir>/__mocks__/fileMock.js"
+    }
 }

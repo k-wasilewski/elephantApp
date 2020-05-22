@@ -1,10 +1,5 @@
 {
   "name": "npm_sample",
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|svg)$": "<rootDir>/__mocks__/fileMock.js"
-    }
-  },
   "version": "1.0.0",
   "description": "",
   "main": "js/app.js",
