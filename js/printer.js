@@ -1,1 +1,0 @@
-console.log("siemanko w pliku printer.js");

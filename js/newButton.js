@@ -1,8 +1,5 @@
-var newButton = document.createElement("button");
-newButton.innerHTML = "appended button";
-newButton.id = "newButton";
-newButton.onclick = function () {
-    console.log('appended button clicked');
-}
+var newButton = document.createElement("div");
+newButton.innerHTML = "menu items";
+newButton.id = "menuItems";
 
 module.exports = newButton;

@@ -21,6 +21,19 @@
   src: url(../fonts/Lato-Hairline.ttf);
 }
 
-span {
+header {
   font-family: myLato;
+}
+
+#menu {
+
+  #menuBtn {
+    cursor: pointer;
+    height: 10vh;
+    float: right;
+  }
+}
+
+.hidden {
+  visibility: hidden;
 }
