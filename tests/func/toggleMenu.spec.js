@@ -11,10 +11,10 @@ describe("toggleMenu function specification", () => {
                     '<div id="mainDiv"></div>' +
                 '</div>'
 
-            var menuItems = require('../js/menu/menuItems')
+            var menuItems = require('../../js/menu/menuItems')
             document.body.appendChild(menuItems)
 
-            var toggleMenu = require('../js/func/toggleMenu')
+            var toggleMenu = require('../../js/func/toggleMenu')
 
             toggleMenu.func()
 

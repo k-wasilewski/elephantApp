@@ -9,7 +9,7 @@ describe("appendDiv function specification", () => {
             document.body.innerHTML =
                 '<div class="my-div"/>'
 
-            var appendDiv = require('../js/func/appendDiv')
+            var appendDiv = require('../../js/func/appendDiv')
 
             var mydivMock = document.getElementsByClassName('my-div')[0]
             appendDiv.func(mydivMock, '80%')

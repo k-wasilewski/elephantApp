@@ -9,7 +9,7 @@ describe("toggleVisibility function specification", () => {
                 '<div class="my-div1"></div>' +
                 '<div class="my-div2 hidden"></div>'
 
-            var toggleVisibility = require('../js/func/toggleVisibility')
+            var toggleVisibility = require('../../js/func/toggleVisibility')
 
             var mydiv1Mock = document.getElementsByClassName('my-div1')[0]
             var mydiv2Mock = document.getElementsByClassName('my-div2')[0]
@@ -34,7 +34,7 @@ describe("toggleVisibility function specification", () => {
                     '<div class="my-div3 main hidden"></div>' +
                 '</div>'
 
-            var toggleVisibility = require('../js/func/toggleVisibility')
+            var toggleVisibility = require('../../js/func/toggleVisibility')
 
             var mydiv1Mock = document.getElementsByClassName('my-div1')[0]
             var mydiv2Mock = document.getElementsByClassName('my-div2')[0]
