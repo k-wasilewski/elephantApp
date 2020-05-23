@@ -51,7 +51,7 @@ module.exports = env => {
             loader: 'babel-loader',
             options: {
                 presets: [
-                    ['env', {
+                    ['@babel/env', {
                         targets: {
                             browsers: isDev
                                 ? browsers.dev

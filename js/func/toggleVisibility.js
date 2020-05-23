@@ -9,6 +9,9 @@ module.exports = {
        }
 
         element.classList.toggle('hidden');
+    },
+    parent: function (element) {    //for jest
+        return element.parentElement
     }
 }
 

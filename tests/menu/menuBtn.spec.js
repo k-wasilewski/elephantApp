@@ -29,7 +29,7 @@ describe("menu button specification", () => {
                     '<div id="mainDiv"></div>' +
                 '</div>'
 
-            var menuItems = require('../../js/menu/menuItems')
+            var menuItems = require('../../js/menu/menuItems').menuItems()
             document.body.appendChild(menuItems)
 
             var menuBtn = require('../../js/menu/menuBtn')
