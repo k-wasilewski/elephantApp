@@ -70,3 +70,9 @@ npm install --save-dev @babel/preset-env
 ## enabling babel to use async/await
 npm i regenerator-runtime
 npm i core-js
+
+
+# Node.js
+
+## running node server
+node server.js
