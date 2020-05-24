@@ -71,6 +71,9 @@ npm install --save-dev @babel/preset-env
 npm i regenerator-runtime
 npm i core-js
 
+## installing identity-obj-proxy (for mocking styles)
+npm i identity-obj-proxy
+
 
 # Node.js
 
