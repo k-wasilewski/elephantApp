@@ -16,4 +16,5 @@ document.addEventListener("DOMContentLoaded", function () {
     var mainDiv = document.createElement('div')
     mainDiv.id = 'mainDiv'
     root.appendChild(mainDiv)
+    
 })
